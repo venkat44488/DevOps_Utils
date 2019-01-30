@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    image: venkat44488/nginx:1.0
+    ports:
+      - 80:80
+    networks:
+      - nginx
+    volumes:
+      - nginx:/usr/share/nginx/html
+volumes:
+  nginx:
+networks:
+  nginx:
+    driver: bridge
+#command to run docker compose file is : docker-compose run nginx
