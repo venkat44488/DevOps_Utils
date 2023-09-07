@@ -1,5 +1,5 @@
 
-# JENKINS DATA as below
+## JENKINS DATA as below
 - Manage Jenkins -->Plugins for plugin installaiton.
 - Manage Jenkins --> System
 - Manage Jenkins --> tools
@@ -18,7 +18,22 @@
  - delete workspace when build is done
  - publish html reports
  - 
-# sample jenkins DECLARATIVE pipeline 
+- some build tools are as below
+ - gradle: for python
+ - apache maven: for java
+ - npm: for java scripts
+ - MSBuild: for .NET
+ - ANT: for java
+- Static code analysis tools
+  - ESLint: for java script
+  - PyLint: for python 
+  - sonarqube: an opensource platform for contineus inspection of code quality. it supports multiple languages. 
+- what are artifactory tools 
+ - JFrog Artifactory:  The core product, JFrog Artifactory, serves as a universal repository manager. It supports various package formats, including Maven, npm, Docker, PyPI, and more. It allows you to store, retrieve, and manage binary artifacts and their metadata in a highly customizable and organized manner. Developers use Artifactory to store and share software libraries and dependencies.
+ - JFrog Container Registry: This is a specialized version of Artifactory designed specifically for managing Docker images. It allows you to host Docker repositories, including Helm charts, and provides tools for scanning container images for vulnerabilities.
+ - Nexus: Nexus is another popular tool used for artifact and repository management in software development.
+
+## Sample jenkins DECLARATIVE pipeline 
 
 ```t
 pipeline {
@@ -61,7 +76,7 @@ pipeline {
 
 ```
 
-# sample jenkins SCRIPTED pipeline 
+## Sample jenkins SCRIPTED pipeline 
 
 ```t 
 node {
@@ -95,6 +110,13 @@ node {
         // Cleanup or post-build actions can go here
     }
 }
+
+```
+## Declaring ENVIRONMENT variables in jenkins file
+```t
+environment { ①
+  CC = 'clang'
+  }
 
 ```
 
