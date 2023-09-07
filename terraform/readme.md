@@ -102,3 +102,7 @@ output "mapoutput" {
  1. state files will be maintained in s3. 
  2. object lock option is there in aws s3.
  3. we can create dynamodb table and configure in terraform.tf file 
+
+ ### Additional Observations
+- AMI Name is static - How to make it Dynamic ?
+  - Use Terraform Datasources concept
