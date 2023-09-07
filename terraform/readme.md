@@ -103,6 +103,40 @@ output "mapoutput" {
  2. object lock option is there in aws s3.
  3. we can create dynamodb table and configure in terraform.tf file 
 
+ - What is the difference between Terraform state and Terraform plan?
+  - Terraform state is a file that keeps track of the resources Terraform manages, while Terraform plan generates an execution plan that shows what actions Terraform will take to achieve the desired infrastructure state.
+- How does Terraform handle dependencies between resources?
+  - Terraform automatically handles resource dependencies based on the order they are defined in the     configuration. You can also use explicit dependencies and data sources to manage dependencies more precisely.
+- What is a Terraform module, and why would you use it?
+- How can you manage secrets or sensitive information in Terraform configurations?
+ - Suppose you have an AWS access key and secret key that you want to keep secure and not store directly in your Terraform configuration files.
+ 1. Set Environment Variables:
+First, set the AWS access key and secret key as environment variables on your local machine or in your deployment environment. You can do this by running commands like these in your terminal:
+```t 
+# Read secrets from pass and set as environment variables
+$ pass insert db_username
+Enter password for db_username: admin
+$ pass insert db_password
+Enter password for db_password: password
+export TF_VAR_username=$(pass db_username)
+export TF_VAR_password=$(pass db_password)
+
+variable "username" {
+ type = string
+}
+variable "password" {
+ type = string
+ provider "aws" {
+ access_key = var.username
+ secret_key = var.password
+}
+
+```
+
+
  ### Additional Observations
 - AMI Name is static - How to make it Dynamic ?
   - Use Terraform Datasources concept
+- What are Terraform's main components?
+  - providers, resources, modules.
+- 
