@@ -19,7 +19,7 @@
 	4. boolean
 	
 1. string example
-	
+```t
 variable "name"{
   type = "string"
   default = "ramana"
@@ -28,8 +28,9 @@ variable "name"{
 output "myname" {
   value = "${var.name}"
 }
+```
 2. map example
-// this is map variable example
+```t
 variable "mapexample" {
   type = "map"
   default = {
@@ -38,12 +39,15 @@ variable "mapexample" {
   }
 }
 
-3. list example
+```
 
+3. list example
+```t
 variable "mylist" {
   type = "list"
   default = ["sg1","sg2" , "sg3"]
 }
+
 
 output "printlist" {
   value = "${var.mylist}"
@@ -52,7 +56,7 @@ output "printlist" {
 output "mapoutput" {
   value = "${var.mapexample["us-east"]}"
 }
-
+```
 ###  worksace: to maintain consistency across all platforms we are having different workspace
 	ex: 
 	  1. terraform workspace new  dev
@@ -95,6 +99,6 @@ output "mapoutput" {
 
 ## FAQ'S in terraform 
 ### Q) where do you maintain state files?
- --> state files will be maintained in s3. 
- --> object lock option is there in aws s3.
- --> we can create dynamodb table and configure in terraform.tf file 
+ 1. state files will be maintained in s3. 
+ 2. object lock option is there in aws s3.
+ 3. we can create dynamodb table and configure in terraform.tf file 
