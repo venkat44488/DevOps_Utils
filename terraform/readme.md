@@ -98,10 +98,10 @@ output "mapoutput" {
 	
 
 ## FAQ'S in terraform 
-### Q) where do you maintain state files?
- 1. state files will be maintained in s3. 
- 2. object lock option is there in aws s3.
- 3. we can create dynamodb table and configure in terraform.tf file 
+-  where do you maintain state files?
+   1. state files will be maintained in s3. 
+   2. object lock option is there in aws s3.
+   3. we can create dynamodb table and configure in terraform.tf file 
 
  - What is the difference between Terraform state and Terraform plan?
   - Terraform state is a file that keeps track of the resources Terraform manages, while Terraform plan generates an execution plan that shows what actions Terraform will take to achieve the desired infrastructure state.
@@ -132,11 +132,15 @@ variable "password" {
 }
 
 ```
-
+-
 
  ### Additional Observations
 - AMI Name is static - How to make it Dynamic ?
   - Use Terraform Datasources concept
 - What are Terraform's main components?
   - providers, resources, modules.
-- 
+- terraform supported backend types = local,s3,consul,....
+- terraform force-unlock ===> command can be used to remove the lock on the terraform state for the current configuration .
+- terraform force-unlock == command can be used to remove the locak on the terraform state for the current configuration.
+terraform state show aws_internet_gateway.demo
+terraform state mv aws_s3_bucket.data-bucket aws_s3_bucket.prod-encrypted-data-s3-bucket == recreate the bucket/ similar to rename.
